@@ -55,10 +55,10 @@ public class Nominee {
 
                 System.out.println("New " + p + " award received. No SOLI recalculation.");
                 //System.out.println("population " + population);
-                quantity = ((Math.pow(z, 2) * (p) * (1 - p)) / (Math.pow(c, 2))) / (1 + ((((Math.pow(z, 2) * (p) * (1 - p)) / (Math.pow(c, 2))) - 1) / population));
+                quantity = calculateQuantity(z, p, c);
                 System.out.println("calculatedQuantity " + quantity);
             }else {
-                quantity2 = ((Math.pow(z, 2) * (p) * (1 - p)) / (Math.pow(c, 2))) / (1 + ((((Math.pow(z, 2) * (p) * (1 - p)) / (Math.pow(c, 2))) - 1) / population));
+                quantity2 = calculateQuantity(z, p, c);
                 System.out.println("calculatedQuantity " + quantity2);
             }
 
@@ -80,6 +80,11 @@ public class Nominee {
             System.out.println("brrrrrr. What a pain!");
         }
 
+    }
+
+    private double calculateQuantity(int z, double p, double c) {
+        double x = ((Math.pow(z, 2) * (p) * (1 - p)) / (Math.pow(c, 2))) / (1 + ((((Math.pow(z, 2) * (p) * (1 - p)) / (Math.pow(c, 2))) - 1) / population));
+        return x;
     }
 
 }
