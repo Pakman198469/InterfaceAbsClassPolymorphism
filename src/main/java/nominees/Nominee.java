@@ -83,8 +83,7 @@ public class Nominee {
     }
 
     private double calculateQuantity(int z, double p, double c) {
-        double x = ((Math.pow(z, 2) * (p) * (1 - p)) / (Math.pow(c, 2))) / (1 + ((((Math.pow(z, 2) * (p) * (1 - p)) / (Math.pow(c, 2))) - 1) / population));
-        return x;
+        return ((Math.pow(z, 2) * (p) * (1 - p)) / (Math.pow(c, 2))) / (1 + ((((Math.pow(z, 2) * (p) * (1 - p)) / (Math.pow(c, 2))) - 1) / population));
     }
 
 }
