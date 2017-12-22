@@ -29,10 +29,6 @@ public class Nominator {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getNominatorAwardQuantityLimit() {
         return nominatorAwardQuantityLimit;
     }
