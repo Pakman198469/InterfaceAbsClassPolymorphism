@@ -12,25 +12,55 @@ public class Nominee {
     }
 
     private String name;
-    private double awardSum;
+    //private double awardSum;
     private double quantity;
     private double quantity2;
     private int population;
     private boolean found = true;
+    private int nomineeAwardQuantityLimit;
+    private int nomineeAwardQuantity;
+    private double awardSumLimit;
+    private double nomineeAwardSum;
 
 
 
-    public Nominee(String name, int awardSum) {
+    public Nominee(String name,double awardSumLimit, int nomineeAwardQuantityLimit) {
         this.name = name;
-        this.awardSum = awardSum;
+        this.awardSumLimit = awardSumLimit;
+        this.nomineeAwardQuantityLimit = nomineeAwardQuantityLimit;
+
     }
 
     public String getName() {
         return name;
     }
 
-    public double getAwardSum() {
-        return awardSum;
+    public int nomineeAwardQuantityLimit() {
+        return nomineeAwardQuantityLimit;
+    }
+
+    public void nomineeAwardQuantityLimit(int nomineeAwardQuantityLimit) {
+        this.nomineeAwardQuantityLimit = nomineeAwardQuantityLimit;
+    }
+
+    public double getAwardSumLimit() {
+        return awardSumLimit;
+    }
+
+    public void setAwardSumLimit(double awardSumLimit) {
+        this.awardSumLimit = awardSumLimit;
+    }
+
+    public int getNomineeAwardQuantityLimit() {
+        return nomineeAwardQuantityLimit;
+    }
+
+    public int getNomineeAwardQuantity() {
+        return nomineeAwardQuantity;
+    }
+
+    public double getNomineeAwardSum() {
+        return nomineeAwardSum;
     }
 
     public void receiveAward(Award award) {
@@ -44,11 +74,13 @@ public class Nominee {
             //calculation for SOLI
             double newValue;
             newValue = award.getValue() + (award.getValue() * award.getSoli() / 100);
-            this.awardSum = awardSum + newValue;
+            this.nomineeAwardSum = nomineeAwardSum + newValue;
+            nomineeAwardQuantity++;
             System.out.printf("New Recalculated award = %s. " + " SOLI value = %s\n", newValue, award.getSoli());
         } else {
 
-            this.awardSum = awardSum + award.getValue();
+            this.nomineeAwardSum = nomineeAwardSum + award.getValue();
+            nomineeAwardQuantity++;
             population++;
 
             if(quantity == 0) {
@@ -56,16 +88,17 @@ public class Nominee {
                 System.out.println("New " + p + " award received. No SOLI recalculation.");
                 //System.out.println("population " + population);
                 quantity = calculateQuantity(z, p, c);
-                System.out.println("calculatedQuantity " + quantity);
+                //System.out.println("calculatedQuantity " + quantity);
             }else {
+                System.out.println("New " + p + " award received. No SOLI recalculation.");
                 quantity2 = calculateQuantity(z, p, c);
-                System.out.println("calculatedQuantity " + quantity2);
+                //System.out.println("calculatedQuantity " + quantity2);
             }
 
 
         }
 
-        if(quantity != 0 && quantity2 !=0) {
+        /*if(quantity != 0 && quantity2 !=0) {
             System.out.println("Two non-soli awards received.");
             found = false;
         }else {
@@ -78,7 +111,7 @@ public class Nominee {
 
         if(!found) {
             System.out.println("brrrrrr. What a pain!");
-        }
+        }*/
 
     }
 
