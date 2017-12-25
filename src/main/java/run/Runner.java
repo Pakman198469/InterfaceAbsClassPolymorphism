@@ -15,10 +15,10 @@ public class Runner {
         Award award1 = new Award(100);
         Award award2 = new Award(20,50);
         Award award3 = new Award(80,90);
-        Nominee nominee1 = new Nominee("Great Emperor", 110, 3);
-        Nominee nominee2 = new Nominee("Gogi", 300,1);
-        Nominee nominee3 = new Nominee("Raschid", 100,0);
-        Nominator nominator1 = new Nominator("Great Nominator", 8, 150);
+        Nominee nominee1 = new Nominee("Great Emperor", 100, 3);
+        Nominee nominee2 = new Nominee("Gogi", 300,3);
+        Nominee nominee3 = new Nominee("Raschid", 100,1);
+        Nominator nominator1 = new Nominator("Great Nominator", 6, 1000);
         LimitChecker checker = new LimitChecker();
 
 

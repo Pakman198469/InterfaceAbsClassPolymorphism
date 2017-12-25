@@ -79,7 +79,7 @@ public class Nominee {
             System.out.printf("New Recalculated award = %s. " + " SOLI value = %s\n", newValue, award.getSoli());
         } else {
 
-            this.nomineeAwardSum = nomineeAwardSum + award.getValue();
+            this.nomineeAwardSum += award.getValue(); // this.nomineeAwardSum = nomineeAwardSum + award.getValue(); - оператор присваивания
             nomineeAwardQuantity++;
             population++;
 
