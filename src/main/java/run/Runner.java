@@ -18,7 +18,7 @@ public class Runner {
         Nominee nominee1 = new Nominee("Great Emperor", 110, 3);
         Nominee nominee2 = new Nominee("Gogi", 300,1);
         Nominee nominee3 = new Nominee("Raschid", 100,0);
-        Nominator nominator1 = new Nominator("Great Nominator", 8, 30);
+        Nominator nominator1 = new Nominator("Great Nominator", 8, 150);
         LimitChecker checker = new LimitChecker();
 
 
