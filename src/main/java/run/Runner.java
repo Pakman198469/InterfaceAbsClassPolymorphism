@@ -15,14 +15,21 @@ public class Runner {
         Award award1 = new Award(100);
         Award award2 = new Award(20,50);
         Award award3 = new Award(80,90);
-        Nominee nominee1 = new Nominee("Great Emperor", 100, 3);
+        Nominee nominee1 = new Nominee("Great Emperor", 1000, 5);
         Nominee nominee2 = new Nominee("Gogi", 300,3);
         Nominee nominee3 = new Nominee("Raschid", 100,1);
-        Nominator nominator1 = new Nominator("Great Nominator", 6, 1000);
+        Nominator nominator1 = new Nominator("Great Nominator", 30, 1000);
         LimitChecker checker = new LimitChecker();
 
 
-        nominator1.nominate(nominee1, award1, checker);
+
+        for (int i = 0; i < 10; i++) {
+            Award award8 = new Award(200 * i);
+            nominator1.nominate(nominee1, award8, checker);
+
+        }
+
+
         nominator1.nominate(nominee1, award1, checker);
         System.out.println(nominee1.getName() + "'s award balance = " + nominee1.getNomineeAwardSum() + "\n");
 

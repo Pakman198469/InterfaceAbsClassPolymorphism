@@ -63,6 +63,10 @@ public class Nominee {
         return nomineeAwardSum;
     }
 
+    public void setNomineeAwardSum(double nomineeAwardSum) {
+        this.nomineeAwardSum = nomineeAwardSum;
+    }
+
     public void receiveAward(Award award) {
         double p = award.getValue();
         Random random = new Random();
