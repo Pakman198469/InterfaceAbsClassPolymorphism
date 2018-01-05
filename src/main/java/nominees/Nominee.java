@@ -4,7 +4,8 @@ import awards.Award;
 import java.util.Random;
 
 /**
- * Created by Aleh_Hutyrchyk on 12/14/2017.
+ * Defines nominee properties and provides 'receive award' functionality + recalculation for award values
+ * @author Aleh_Hutyrchyk
  */
 public class Nominee {
     static{

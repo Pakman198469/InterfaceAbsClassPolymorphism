@@ -5,11 +5,11 @@ import nominators.Nominator;
 import nominees.Nominee;
 
 /**
- * Created by Aleh_Hutyrchyk.
+ * Checks limits of awards for nominee and nominator
+ * @author Aleh_Hutyrchyk
  * @version 1.2
  * @since 28.12.2017
  */
-
 public class LimitChecker {
 
     /**
@@ -18,8 +18,8 @@ public class LimitChecker {
      * @param nominator - nominator
      * @param nominee - nominee
      * @param award - award
-     * @return - <>true</> - nominator/nominee can give/receive awards
-     *           <>false</> - nominator/nominee can not give/receive awards
+     * @return - <code>true</code> - nominator/nominee can give/receive awards<br />
+     *           {@code false} - nominator/nominee can not give/receive awards
      */
     public boolean canNominate(Nominator nominator, Nominee nominee, Award award){
 

@@ -5,7 +5,8 @@ import checks.LimitChecker;
 import nominees.Nominee;
 
 /**
- * Created by Aleh_Hutyrchyk on 12/14/2017.
+ * Defines nominator properties and provides 'nominate' function
+ * @author Aleh_Hutyrchyk
  */
 public class Nominator {
     static{

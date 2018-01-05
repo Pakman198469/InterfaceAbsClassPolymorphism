@@ -1,7 +1,8 @@
 package awards;
 
 /**
- * Created by Aleh_Hutyrchyk on 12/14/2017.
+ * Defines award properties
+ * @author Aleh_Hutyrchyk
  */
 public class Award {
     static{

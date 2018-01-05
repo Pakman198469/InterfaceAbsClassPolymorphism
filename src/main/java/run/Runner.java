@@ -8,7 +8,8 @@ import nominees.Nominee;
 
 
 /**
- * Created by Aleh_Hutyrchyk on 12/14/2017.
+ * Creates new objects and performs actions on them (e.g.: give awards)
+ * @author Aleh_Hutyrchyk
  */
 public class Runner {
     public static void main(String[] args) {
@@ -22,9 +23,9 @@ public class Runner {
         LimitChecker checker = new LimitChecker();
 
 
-/*
-  Give award N times and multiply award value to index value each time it is given
- */
+        /*
+          Give award N times and multiply award value to index value each time it is given
+         */
         for (int i = 0; i < 10; i++) {
             Award award8 = new Award(200 * i);
             nominator1.nominate(nominee1, award8, checker);
