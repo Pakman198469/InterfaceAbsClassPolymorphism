@@ -11,10 +11,19 @@ public class Award {
     private final int value;
     private double soli;
 
+    /**
+     * Constructor for award
+     * @param value - award value
+     */
     public Award(int value) {
         this.value = value;
     }
 
+    /**
+     * Constructor for award with SOLI
+     * @param value - award value
+     * @param soli - SOLI value for award
+     */
     public Award(int value, double soli) {
         this.value = value;
         this.soli = soli;

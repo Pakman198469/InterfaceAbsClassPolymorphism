@@ -4,8 +4,23 @@ import awards.Award;
 import nominators.Nominator;
 import nominees.Nominee;
 
+/**
+ * Created by Aleh_Hutyrchyk.
+ * @version 1.2
+ * @since 28.12.2017
+ */
+
 public class LimitChecker {
 
+    /**
+     * Verifies if nominator/nominee can give/receive awards by comparing nominatorAwardQuantity/nominatorAwardQuantityLimit,
+     * nominatorAwardAmount/nominatorAwardAmountLimit, nomineeAwardQuantity/nomineeAwardQuantityLimit, nomineeAwardSum/awardSumLimit;
+     * @param nominator - nominator
+     * @param nominee - nominee
+     * @param award - award
+     * @return - <>true</> - nominator/nominee can give/receive awards
+     *           <>false</> - nominator/nominee can not give/receive awards
+     */
     public boolean canNominate(Nominator nominator, Nominee nominee, Award award){
 
         if(nominator.getNominatorAwardQuantity() >= nominator.getNominatorAwardQuantityLimit()) {

@@ -15,7 +15,7 @@ public class Nominee {
     //private double awardSum;
     private double quantity;
     private double quantity2;
-    private int population;
+    private int population; // total count of employee's awards without SOLI
     private boolean found = true;
     private int nomineeAwardQuantityLimit;
     private int nomineeAwardQuantity;
@@ -23,7 +23,12 @@ public class Nominee {
     private double nomineeAwardSum;
 
 
-
+    /**
+     * Constructor for nominee
+     * @param name - nominee name
+     * @param awardSumLimit - max. sum of awards that nominee can receive
+     * @param nomineeAwardQuantityLimit - max. number of awards that can be received
+     */
     public Nominee(String name,double awardSumLimit, int nomineeAwardQuantityLimit) {
         this.name = name;
         this.awardSumLimit = awardSumLimit;
@@ -67,12 +72,16 @@ public class Nominee {
         this.nomineeAwardSum = nomineeAwardSum;
     }
 
+    /**
+     * Allows nominee receive award; if award contains SOLI - performs award value recalculation;
+     * awards without SOLI - recalculation with special formula; increases nomineeAwardSum and nomineeAwardQuantity
+     * @param award - award
+     */
     public void receiveAward(Award award) {
         double p = award.getValue();
         Random random = new Random();
         double c = Math.random();
         int z = random.nextInt(10);
-
 
         if (award.getSoli() > 0) {
             //calculation for SOLI
@@ -119,6 +128,13 @@ public class Nominee {
 
     }
 
+    /**
+     * Recalculates awards without SOLI
+     * @param z - random whole number
+     * @param p - award value
+     * @param c - random decimal, e.g. 5% = 0,05
+     * @return - recalculated award value
+     */
     private double calculateQuantity(int z, double p, double c) {
         return ((Math.pow(z, 2) * (p) * (1 - p)) / (Math.pow(c, 2))) / (1 + ((((Math.pow(z, 2) * (p) * (1 - p)) / (Math.pow(c, 2))) - 1) / population));
     }

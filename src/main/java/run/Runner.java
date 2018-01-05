@@ -22,11 +22,12 @@ public class Runner {
         LimitChecker checker = new LimitChecker();
 
 
-
+/*
+  Give award N times and multiply award value to index value each time it is given
+ */
         for (int i = 0; i < 10; i++) {
             Award award8 = new Award(200 * i);
             nominator1.nominate(nominee1, award8, checker);
-
         }
 
 

@@ -18,6 +18,12 @@ public class Nominator {
     private int nominatorAwardQuantity;
     private double nominatorAwardAmount;
 
+    /**
+     * Constructor for Nominator
+     * @param name nominator name
+     * @param nominatorAwardQuantityLimit - number of awards that nominator can give
+     * @param nominatorAwardAmountLimit - max. sum of awards in EUR that nominator can give
+     */
     public Nominator(String name, int nominatorAwardQuantityLimit, int nominatorAwardAmountLimit) {
         this.name = name;
         this.nominatorAwardQuantityLimit = nominatorAwardQuantityLimit;
@@ -57,6 +63,13 @@ public class Nominator {
         return nominatorAwardAmount;
     }
 
+    /**
+     * Gives award to nominee after limits verification for nominator and nominee;
+     * increases nominatorAwardQuantity and nominatorAwardAmount if nomination was successful
+     * @param nominee - nominee
+     * @param award - award
+     * @param checker - limit checker for nominator/nominee
+     */
     public void nominate(Nominee nominee, Award award, LimitChecker checker) {
         //System.out.println(nominee1.getName() + " received " + award1.getValue() + " $ award" + "\n");
         if (checker.canNominate(this, nominee, award)) {
@@ -64,7 +77,7 @@ public class Nominator {
             nominatorAwardQuantity++;
             nominatorAwardAmount = nominatorAwardAmount + award.getValue();
         } else {
-            System.out.println("Vtopku!");
+            System.out.println("Vtopku! No more awards!!!");
         }
     }
 
