@@ -85,6 +85,7 @@ public class NominationHelper {
      * @return - recalculated award value
      */
     private double calculateQuantity(int z, double p, double c, Nominee nominee) {
-        return ((Math.pow(z, 2) * (p) * (1 - p)) / (Math.pow(c, 2))) / (1 + ((((Math.pow(z, 2) * (p) * (1 - p)) / (Math.pow(c, 2))) - 1) / nominee.getPopulation()));
+        double a = Math.pow(z, 2) * (p) * (1 - p) / Math.pow(c, 2);
+        return a / (1 + ((a - 1) / nominee.getPopulation()));
     }
 }
