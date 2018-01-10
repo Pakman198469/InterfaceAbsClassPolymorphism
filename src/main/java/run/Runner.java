@@ -21,6 +21,7 @@ public class Runner {
         Nominee nominee3 = new Nominee("Raschid", 100,1);
         Nominator nominator1 = new Nominator("Great Nominator", 30, 1000);
         LimitChecker checker = new LimitChecker();
+        NominationHelper helper = new NominationHelper();
 
 
         /*
@@ -28,19 +29,19 @@ public class Runner {
          */
         for (int i = 0; i < 10; i++) {
             Award award8 = new Award(200 * i);
-            nominator1.nominate(nominee1, award8, checker);
+            helper.nominate(nominator1,nominee1,award8,checker);
         }
 
-
-        nominator1.nominate(nominee1, award1, checker);
+        helper.nominate(nominator1,nominee1,award1,checker);
+        helper.nominate(nominator1,nominee1, award1, checker);
         System.out.println(nominee1.getName() + "'s award balance = " + nominee1.getNomineeAwardSum() + "\n");
 
-        nominator1.nominate(nominee2, award1, checker);
-        nominator1.nominate(nominee2, award3, checker);
+        helper.nominate(nominator1,nominee2, award1, checker);
+        helper.nominate(nominator1,nominee2, award3, checker);
         System.out.println(nominee2.getName() + "'s award balance = " + nominee2.getNomineeAwardSum() + "\n");
 
-        nominator1.nominate(nominee3, award2, checker);
-        nominator1.nominate(nominee3, award3, checker);
+        helper.nominate(nominator1,nominee3, award2, checker);
+        helper.nominate(nominator1,nominee3, award3, checker);
         System.out.println(nominee3.getName() + "'s award balance = " + nominee3.getNomineeAwardSum() + "\n");
 
     }

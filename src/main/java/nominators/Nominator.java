@@ -1,8 +1,5 @@
 package nominators;
 
-import awards.Award;
-import checks.LimitChecker;
-import nominees.Nominee;
 
 /**
  * Defines nominator properties and provides 'nominate' function
@@ -64,22 +61,9 @@ public class Nominator {
         return nominatorAwardAmount;
     }
 
-    /**
-     * Gives award to nominee after limits verification for nominator and nominee;
-     * increases nominatorAwardQuantity and nominatorAwardAmount if nomination was successful
-     * @param nominee - nominee
-     * @param award - award
-     * @param checker - limit checker for nominator/nominee
-     */
-    public void nominate(Nominee nominee, Award award, LimitChecker checker) {
-        //System.out.println(nominee1.getName() + " received " + award1.getValue() + " $ award" + "\n");
-        if (checker.canNominate(this, nominee, award)) {
-            nominee.receiveAward(award);
-            nominatorAwardQuantity++;
-            nominatorAwardAmount = nominatorAwardAmount + award.getValue();
-        } else {
-            System.out.println("Vtopku! No more awards!!!");
-        }
+    public void setNominatorAwardAmount(double nominatorAwardAmount) {
+        this.nominatorAwardAmount = nominatorAwardAmount;
     }
+
 
 }
