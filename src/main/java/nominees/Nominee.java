@@ -1,16 +1,17 @@
 package nominees;
 
 
+import employees.Person;
+
 /**
  * Defines nominee properties and provides 'receive award' functionality + recalculation for award values
  * @author Aleh_Hutyrchyk
  */
-public class Nominee {
+public class Nominee extends Person {
     static{
         System.out.println("Nominee initialized");
     }
 
-    private String name;
     private double quantity;
     private double quantity2;
     private int population; // total count of employee's awards without SOLI
@@ -26,16 +27,13 @@ public class Nominee {
      * @param awardSumLimit - max. sum of awards that nominee can receive
      * @param nomineeAwardQuantityLimit - max. number of awards that can be received
      */
-    public Nominee(String name,double awardSumLimit, int nomineeAwardQuantityLimit) {
-        this.name = name;
+    public Nominee(String name, double awardSumLimit, int nomineeAwardQuantityLimit) {
+        super(name);
         this.awardSumLimit = awardSumLimit;
         this.nomineeAwardQuantityLimit = nomineeAwardQuantityLimit;
 
     }
 
-    public String getName() {
-        return name;
-    }
 
     public int nomineeAwardQuantityLimit() {
         return nomineeAwardQuantityLimit;
