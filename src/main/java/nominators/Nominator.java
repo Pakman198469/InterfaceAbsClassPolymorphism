@@ -28,9 +28,44 @@ public class Nominator extends Person {
         super(name);
         this.nominatorAwardQuantityLimit = nominatorAwardQuantityLimit;
         this.nominatorAwardAmountLimit = nominatorAwardAmountLimit;
-
+        super.printSomething();
+        this.printSomething();
     }
 
+    /**
+     * Constructor for Extended nominator
+     * @param name - nominator name
+     * @param age- nominator age
+     * @param id- nominator id
+     * @param department- nominator dep.
+     * @param nominatorAwardQuantityLimit - number of awards that nominator can give
+     * @param nominatorAwardAmountLimit - max. sum of awards in EUR that nominator can give
+     */
+    public Nominator(String name, int age, int id, String department, int nominatorAwardQuantityLimit, int nominatorAwardAmountLimit) {
+        super(name, age, id, department);
+        this.nominatorAwardQuantityLimit = nominatorAwardQuantityLimit;
+        this.nominatorAwardAmountLimit = nominatorAwardAmountLimit;
+    }
+
+    /**
+     * Indicates usage of method from Nominator class
+     */
+    @Override
+    public void printSomething() {
+        System.out.println("New Nominator created!");
+    }
+
+    /**
+     * Overriden method from parent class; returns Nominator details
+     * @param person - person obj.
+     */
+    @Override
+    public void printEmplInfo(Person person) {
+        System.out.println(person.getName());
+        System.out.println(person.getAge());
+        System.out.println(person.getId());
+        System.out.println(person.getDepartment());
+    }
 
     public int getNominatorAwardQuantityLimit() {
         return nominatorAwardQuantityLimit;

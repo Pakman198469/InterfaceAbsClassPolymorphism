@@ -20,6 +20,7 @@ public class Runner {
         Nominee nominee2 = new Nominee("Gogi", 300,3);
         Nominee nominee3 = new Nominee("Raschid", 100,1);
         Nominator nominator1 = new Nominator("Great Nominator", 30, 1000);
+        Nominator nominator2 = new Nominator("Extended nominator", 25, 3, "IT", 20, 500);
         LimitChecker checker = new LimitChecker();
         NominationHelper helper = new NominationHelper();
 
@@ -43,6 +44,9 @@ public class Runner {
         helper.nominate(nominator1,nominee3, award2, checker);
         helper.nominate(nominator1,nominee3, award3, checker);
         System.out.println(nominee3.getName() + "'s award balance = " + nominee3.getNomineeAwardSum() + "\n");
+
+        nominator1.printEmplInfo(nominator1);
+        nominator2.printEmplInfo(nominator2);
 
     }
 
