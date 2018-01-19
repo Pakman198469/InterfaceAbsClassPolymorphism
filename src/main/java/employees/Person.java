@@ -9,10 +9,6 @@ public class Person {
 
 
 
-    public Person() {
-
-    }
-
     public Person(String name) {
         this.name = name;
     }
