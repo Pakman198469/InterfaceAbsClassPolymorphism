@@ -25,7 +25,6 @@ public class Runner {
         NominationHelper helper = new NominationHelper();
 
 
-
         /*
           Give award N times and multiply award value to index value each time it is given
          */
