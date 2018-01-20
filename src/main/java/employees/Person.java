@@ -15,7 +15,7 @@ public class Person {
      * @param name - person name
      */
     public Person(String name) {
-        this.name = name;
+        this(name,0,0,null);
     }
 
     /**
@@ -49,11 +49,10 @@ public class Person {
 
     /**
      * Method will be Overriden in Nominator class
-     * @param person - person obj.
      */
-    public void printEmplInfo(Person person) {
-        System.out.println(person.getName());
-        System.out.println(person.getAge());
+    @Override
+    public String toString() {
+        return "Person(" + id + "): " + name + ", " + age + " from " + department;
     }
 
     public String getName() {

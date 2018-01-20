@@ -95,5 +95,8 @@ public class Nominee extends Person {
         this.quantity2 = quantity2;
     }
 
-
+    @Override
+    public String toString() {
+        return "Nominee: " + super.toString() + ", got $" + nomineeAwardSum + " in total";
+    }
 }

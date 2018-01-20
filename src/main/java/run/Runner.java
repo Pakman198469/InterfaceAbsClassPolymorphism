@@ -45,9 +45,9 @@ public class Runner {
         helper.nominate(nominator1,nominee3, award3, checker);
         System.out.println(nominee3.getName() + "'s award balance = " + nominee3.getNomineeAwardSum() + "\n");
 
-        nominator1.printEmplInfo(nominator1);
-        nominator2.printEmplInfo(nominator2);
-
+        System.out.println(nominator1.toString());
+        System.out.println(nominator2);
+        System.out.println(nominee1);
     }
 
 }

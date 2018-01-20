@@ -57,14 +57,10 @@ public class Nominator extends Person {
 
     /**
      * Overriden method from parent class; returns Nominator details
-     * @param person - person obj.
      */
     @Override
-    public void printEmplInfo(Person person) {
-        System.out.println(person.getName());
-        System.out.println(person.getAge());
-        System.out.println(person.getId());
-        System.out.println(person.getDepartment());
+    public String toString() {
+        return "Nominator(" + getId() + "): " + getName() + ", from " + getDepartment();
     }
 
     public int getNominatorAwardQuantityLimit() {
