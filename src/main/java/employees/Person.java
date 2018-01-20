@@ -37,7 +37,15 @@ public class Person {
      * @param i - some external input parameter just for example
      */
     public Person(int i) {
-        this("Gogi",31, 42, "Sales"); // Calling second constructor with 4 parameters; parametrized constructor
+        this("Gogi",31, 42, "Sales"); // Calling second constructor; parametrized constructor
+    }
+
+    /**
+     * Calling parametrized constructor from default one
+     */
+    public Person() {
+        this("Mahmud");
+
     }
 
     /**
