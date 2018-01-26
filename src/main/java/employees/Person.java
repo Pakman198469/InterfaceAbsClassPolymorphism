@@ -1,9 +1,11 @@
 package employees;
 
+import checks.OperationsWithLimit;
+
 /**
  * Created by Aleh_Hutyrchyk on 1/19/2018.
  */
-public class Person {
+public abstract class Person implements OperationsWithLimit{
 
     private String name;
     private int age;

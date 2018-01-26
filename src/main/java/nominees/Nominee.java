@@ -1,6 +1,7 @@
 package nominees;
 
 
+import awards.Award;
 import employees.Person;
 
 /**
@@ -34,6 +35,36 @@ public class Nominee extends Person {
 
     }
 
+    /**
+     * Method from interface
+     * @return {@code true} - if limit was reached <br/>
+     *         {@code false} - if limit was not reached
+     */
+    public boolean isLimitReached() {
+        if(nomineeAwardSum >= awardSumLimit) {return true;}
+        else {return false;}
+    }
+
+    /**
+     * Method from interface; verifies if awardSumLimit for nominee is reached
+     * @param award - award, used to get award value
+     * @return {@code true} - if limit was reached <br/>
+     *         {@code false} - if limit was not reached
+     */
+    public boolean isLimitReached(Award award) {
+        if(nomineeAwardSum >= awardSumLimit || awardSumLimit < nomineeAwardSum + award.getValue()) {return true;}
+        else {return false;}
+    }
+
+    /**
+     * Method from interface; verifies if nomineeAwardQuantityLimit was reached
+     * @return {@code true} - if limit was reached <br/>
+     *         {@code false} - if limit is not reached
+     */
+    public boolean isQuantityLimitReached() {
+        if(nomineeAwardQuantity >= nomineeAwardQuantityLimit) {return true;}
+        else {return false;}
+    }
 
     public int nomineeAwardQuantityLimit() {
         return nomineeAwardQuantityLimit;

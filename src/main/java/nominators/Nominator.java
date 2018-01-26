@@ -1,6 +1,7 @@
 package nominators;
 
 
+import awards.Award;
 import employees.Person;
 
 /**
@@ -45,6 +46,34 @@ public class Nominator extends Person {
         super(name, age, id, department);
         this.nominatorAwardQuantityLimit = nominatorAwardQuantityLimit;
         this.nominatorAwardAmountLimit = nominatorAwardAmountLimit;
+    }
+
+    /**
+     * Method from interface without parameters
+     * @return {@code true} - if limit was reached <br/>
+     *         {@code false} - if limit is not reached
+     */
+    public boolean isLimitReached() {
+        return nominatorAwardAmount >= nominatorAwardAmountLimit || nominatorAwardAmountLimit < nominatorAwardAmount;
+    }
+
+    /**
+     * Method from interface with 1 parameter; verifies if nominatorAwardAmountLimit reached
+     * @param award - object, used to get award value
+     * @return {@code true} - if limit was reached <br/>
+     *         {@code false} - if limit is not reached
+     */
+    public boolean isLimitReached(Award award) {
+        return nominatorAwardAmount >= nominatorAwardAmountLimit || nominatorAwardAmountLimit < nominatorAwardAmount + award.getValue();
+    }
+
+    /**
+     * Method from interface; verifies if nominatorAwardQuantityLimit reached
+     * @return {@code true} - if limit was reached <br/>
+     *         {@code false} - if limit is not reached
+     */
+    public boolean isQuantityLimitReached() {
+        return nominatorAwardQuantity >= nominatorAwardQuantityLimit;
     }
 
     /**

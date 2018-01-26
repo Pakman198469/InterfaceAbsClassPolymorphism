@@ -23,7 +23,7 @@ public class LimitChecker {
      */
     public boolean canNominate(Nominator nominator, Nominee nominee, Award award){
 
-        if(nominator.getNominatorAwardQuantity() >= nominator.getNominatorAwardQuantityLimit()) {
+        if(nominator.isQuantityLimitReached()) {
             System.out.println(nominator.getName() + " reached QuantityLimit");
             switch (nominator.getNominatorAwardQuantity()) {
                 case 1 :
@@ -40,7 +40,7 @@ public class LimitChecker {
                         break;
             }
             return false;
-        }else if (nominator.getNominatorAwardAmount() >= nominator.getNominatorAwardAmountLimit() || nominator.getNominatorAwardAmountLimit() < nominator.getNominatorAwardAmount() + award.getValue()) {
+        }else if (nominator.isLimitReached(award)) {
             System.out.println(nominator.getName() + " reached AmountLimit.");
 
             while (nominator.getNominatorAwardAmount() >= 0) {
@@ -48,7 +48,7 @@ public class LimitChecker {
                 break;
             }
             return false;
-        }else if (nominee.getNomineeAwardQuantity() >= nominee.getNomineeAwardQuantityLimit()) {
+        }else if (nominee.isQuantityLimitReached()) {
 
             do{
                 System.out.println("OLOLO");
@@ -56,7 +56,7 @@ public class LimitChecker {
 
             System.out.println(nominee.getName() + " reached NomineeQuantityLimit of " + nominee.getNomineeAwardQuantity() + " awards.");
             return false;
-        }else if (nominee.getNomineeAwardSum() >= nominee.getAwardSumLimit() || nominee.getAwardSumLimit() < nominee.getNomineeAwardSum() + award.getValue()) {
+        }else if (nominee.isLimitReached(award)) {
             System.out.println(nominee.getName() + " reached NomineeSumLimit of " + nominee.getNomineeAwardSum() + " EUR");
             return false;
         }
