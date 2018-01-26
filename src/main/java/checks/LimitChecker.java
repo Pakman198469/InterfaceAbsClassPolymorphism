@@ -1,6 +1,7 @@
 package checks;
 
 import awards.Award;
+import employees.Person;
 import nominators.Nominator;
 import nominees.Nominee;
 

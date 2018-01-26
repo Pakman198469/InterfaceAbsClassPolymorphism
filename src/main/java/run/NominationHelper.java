@@ -2,6 +2,7 @@ package run;
 
 import awards.Award;
 import checks.LimitChecker;
+import employees.Person;
 import nominators.Nominator;
 import nominees.Nominee;
 

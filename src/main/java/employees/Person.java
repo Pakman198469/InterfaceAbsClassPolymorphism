@@ -1,5 +1,6 @@
 package employees;
 
+import awards.Award;
 import checks.OperationsWithLimit;
 
 /**
@@ -64,6 +65,7 @@ public abstract class Person implements OperationsWithLimit{
     public String toString() {
         return "Person(" + id + "): " + name + ", " + age + " from " + department;
     }
+
 
     public String getName() {
         return name;
