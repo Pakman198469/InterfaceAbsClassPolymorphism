@@ -62,7 +62,7 @@ public abstract class Person implements OperationsWithLimit{
      * Method will be Overriden in Nominator class
      */
     public String toString() {
-        return "Person(" + id + "): " + name + ", " + age + " from " + department;
+        return "Person (" + id + "): " + name + ", " + age + " from " + department;
     }
 
     /**
@@ -74,7 +74,7 @@ public abstract class Person implements OperationsWithLimit{
         if(full) {
             return toString();
         } else {
-            return "Person" + name + " , " + department;
+            return "Person " + name + " , " + "no enough info about this employee!";
         }
 
     }
