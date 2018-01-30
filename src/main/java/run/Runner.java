@@ -69,6 +69,7 @@ public class Runner {
         System.out.println(nominator1.toString());
         System.out.println(nominator2);
         System.out.println(nominee1);
+        System.out.println(nominator1.toString(false));
     }
 
 }
