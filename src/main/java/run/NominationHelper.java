@@ -6,13 +6,45 @@ import employees.Person;
 import nominators.Nominator;
 import nominees.Nominee;
 
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created by Aleh_Hutyrchyk on 1/9/2018.
  */
 
 public class NominationHelper {
+
+    public void printAwards(List<Award> awards, String type) {
+        for (Award bonus : awards ) {
+
+            if(null != bonus.getType() && bonus.getType().equals(type)) {
+                System.out.println(bonus);
+            }
+        }
+    }
+
+    public void printAwards2(Set<Award> awards, String type) {
+        for (Award bonus : awards ) {
+
+            if(null != bonus.getType() && bonus.getType().equals(type)) {
+                System.out.println(bonus);
+            }
+        }
+    }
+
+    public void printAwards3(LinkedHashSet<Award> awards) {
+        for (Award bonus : awards ) {
+            Award xx = bonus;
+            /*if(null != bonus.getType() && bonus.getType().equals()) {
+                System.out.println(bonus);
+            }*/
+            System.out.println(bonus);
+        }
+    }
+
+
+
+
 
     /**
      * Gives award to nominee after limits verification for nominator and nominee;

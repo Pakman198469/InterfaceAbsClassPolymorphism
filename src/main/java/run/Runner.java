@@ -6,6 +6,7 @@ import employees.Person;
 import nominators.Nominator;
 import nominees.Nominee;
 
+import java.util.*;
 
 
 /**
@@ -13,44 +14,102 @@ import nominees.Nominee;
  * @author Aleh_Hutyrchyk
  */
 public class Runner {
+
     public static void main(String[] args) {
-        Award award1 = new Award(100);
+        Award award1 = new Award(10, 42, "OMG");
         Award award2 = new Award(20,50);
         Award award3 = new Award(80,90);
+        Award award4 = new Award(20, 42, "OMG");
+        Award award5 = new Award(30, 42, "OMG");
+        Award award6 = new Award(30, 42, "OMG");
+        Award award7 = new Award(100, 42, "OMG1");
+        Award award8 = new Award(100);
+        Award award9 = new Award(100, 42, "WTF");
+        Award award10 = new Award(100, 42, "WTF1");
+        Award award11 = new Award(100, 42, "WTF2");
+        Award award12 = new Award(100, 42, "WTF3");
+        Award award13 = new Award(100, 42, "WTF4");
+        Award award14 = new Award(100, 42, "OMG");
+        Award award15 = new Award(100, 42, "Ordnung");
+        Award award16 = new Award(100, 42, "Muss");
+        Award award17 = new Award(100, 42, "Sein!");
+
+        /**
+         * Casting - it's you telling the compiler that an Object of type A is actually
+         * of more specific type B, and thus gaining access to all the methods on B that
+         * you wouldn't have had otherwise.
+         */
         Person person1 = new Nominee("Great Emperor", 1000, 5);
-        Nominee nominee1 = null;
-        if (person1 instanceof Nominee) {
-            nominee1 = (Nominee) person1;
-        }
+        Nominee nominee1 = (Nominee) person1; //casting
+
         Person person2 = new Nominee("Gogi", 300,3);
-        Nominee nominee2 = null;
-        if (person2 instanceof Nominee) {
-            nominee2 = (Nominee) person2;
-        }
+        Nominee nominee2 = (Nominee) person2;
+
         Person person3 = new Nominee("Raschid", 100,1);
-        Nominee nominee3 = null;
-        if (person3 instanceof Nominee) {
-            nominee3 = (Nominee) person3;
-        }
+        Nominee  nominee3 = (Nominee) person3;
+
+        /**
+         * instanceof is a keyword that is used for checking if a reference variable is
+         * containing a given type of object reference or not.
+         * When we do typecasting, it is always a good idea to check if the typecasting
+         * is valid or not. instanceof helps use here. We can always first check for validity
+         * using instanceof, then do typecasting.
+         */
         Person person4 = new Nominator("Great Nominator", 30, 1000);
         Nominator nominator1 = null;
-        if (person4 instanceof Nominator) {
+        //if (person4 instanceof Nominator) {
             nominator1 = (Nominator) person4;
-        }
+        //}
         Person person5 = new Nominator("Extended nominator", 25, 3, "IT", 20, 500);
         Nominator nominator2 = null;
-        if (person5 instanceof Nominator) {
+        //if (person5 instanceof Nominator) {
             nominator2 = (Nominator) person5;
-        }
+       //}
         LimitChecker checker = new LimitChecker();
         NominationHelper helper = new NominationHelper();
+
+
+        List<Award> awards = new ArrayList<Award>();
+        awards.add(award1);
+        awards.add(award4);
+        awards.add(award5);
+        awards.add(award6);
+        awards.add(award7);
+        awards.add(award8);
+        awards.add(award9);
+        awards.add(award10);
+        awards.add(award11);
+        awards.add(award12);
+        awards.add(award13);
+        awards.add(award14);
+        awards.add(award15);
+        awards.add(award16);
+        awards.add(award17);
+
+
+        /*for (Object bonus : awards ) {
+            System.out.println(bonus);
+
+        }*/
+        System.out.println("==========================================================");
+        helper.printAwards(awards , "OMG");
+        System.out.println("==========================================================");
+
+        Set<Award> set = new LinkedHashSet<Award>(awards);
+        helper.printAwards3(set);
+        //helper.printAwards2(set, "WTF");
+        /*for (Award tmp : set ) {
+            System.out.println(tmp);
+        }*/
+        System.out.println("==========================================================");
+
 
 
         /*
           Give award N times and multiply award value to index value each time it is given
          */
         for (int i = 0; i < 10; i++) {
-            Award award8 = new Award(200 * i);
+            award8 = new Award(200 * i);
             helper.nominate(nominator1,nominee1,award8,checker);
         }
 
