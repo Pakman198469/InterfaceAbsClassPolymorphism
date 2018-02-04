@@ -14,30 +14,50 @@ import java.util.*;
 
 public class NominationHelper {
 
+    /**
+     * Prints awards from List
+     * @param awards - award
+     * @param type - award type
+     */
     public void printAwards(List<Award> awards, String type) {
+        System.out.println("LIST 'awards' with exact 'type' output");
         for (Award bonus : awards ) {
-
             if(null != bonus.getType() && bonus.getType().equals(type)) {
                 System.out.println(bonus);
             }
         }
     }
 
-    public void printAwards2(Set<Award> awards, String type) {
+    /**
+     * Prints awards from Set with exact 'type'
+     * @param awards - awards set
+     * @param type - award type
+     */
+    public void printAwards2(HashSet<Award> awards, String type) {
+        System.out.println("\n" + "SET 'awards' with exact 'type' output");
         for (Award bonus : awards ) {
-
-            if(null != bonus.getType() && bonus.getType().equals(type)) {
-                System.out.println(bonus);
-            }
+            if(bonus.getType() == type) {System.out.println(bonus);}
         }
     }
 
-    public void printAwards3(LinkedHashSet<Award> awards) {
+    /**
+     * Prints awards from Set with unique types
+     * @param awards - awards set
+     */
+    public void printAwards3(HashSet<Award> awards) {
+        System.out.println("SET 'awards' with unique types output");
         for (Award bonus : awards ) {
-            Award xx = bonus;
-            /*if(null != bonus.getType() && bonus.getType().equals()) {
-                System.out.println(bonus);
-            }*/
+            System.out.println(bonus);
+        }
+    }
+
+    /**
+     * Prints awards from Set with unique types
+     * @param set1 - awards set
+     */
+    public void printAwardsSet(HashSet<Award> set1) {
+        System.out.println("SET 'set1' with unique types output");
+        for (Award bonus : set1 ) {
             System.out.println(bonus);
         }
     }

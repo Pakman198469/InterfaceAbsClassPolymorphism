@@ -91,22 +91,40 @@ public class Runner {
             System.out.println(bonus);
 
         }*/
+
         System.out.println("==========================================================");
         helper.printAwards(awards , "OMG");
         System.out.println("==========================================================");
 
-        Set<Award> set = new LinkedHashSet<Award>(awards);
-        helper.printAwards3(set);
-        //helper.printAwards2(set, "WTF");
-        /*for (Award tmp : set ) {
-            System.out.println(tmp);
-        }*/
+        Set<Award> set1 = new HashSet<>();
+        set1.add(award1);
+        set1.add(award4);
+        set1.add(award5);
+        set1.add(award6);
+        set1.add(award7);
+        set1.add(award8);
+        set1.add(award9);
+        set1.add(award10);
+        set1.add(award11);
+        set1.add(award12);
+        set1.add(award13);
+        set1.add(award14);
+        set1.add(award15);
+        set1.add(award16);
+        set1.add(award17);
+        helper.printAwardsSet((HashSet<Award>) set1);
+
+        System.out.println("==========================================================");
+        Set<Award> set = new HashSet<>(awards);
+        helper.printAwards3((HashSet<Award>) set);
+        helper.printAwards2((HashSet<Award>) set, "Ordnung");
+
         System.out.println("==========================================================");
 
 
 
-        /*
-          Give award N times and multiply award value to index value each time it is given
+        /**
+         *Give award N times and multiply award value to index value each time it is given
          */
         for (int i = 0; i < 10; i++) {
             award8 = new Award(200 * i);

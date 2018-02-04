@@ -2,6 +2,7 @@ package awards;
 
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Defines award properties
@@ -53,18 +54,28 @@ public class Award {
         return "Award value = " + value + " " + "ID = " + id + " " + "Type = " + type;
     }
 
+    /**
+     * Method compares two objects on specific fields.
+     * Use the same set of fields that you use to compute equals() to compute hashCode()
+     * @param o - incoming object
+     * @return {@code true} - identical objects <br/>
+     *         {@code false} - different objects <br/>
+     */
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Award award = (Award) o;
+        return Objects.equals(type, award.type);
     }
 
+    /**
+     * Generates hashCode on the basis of specific fields of objects
+     * @return - hash code
+     */
     @Override
-    public boolean equals(Object obj) {
-
-        Award other = (Award) obj;
-        if (this.getType().equals(other.getType()))
-            return false;
-        return true;
+    public int hashCode() {
+        return Objects.hash(type);
     }
 
     public int getValue() {
