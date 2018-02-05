@@ -56,7 +56,7 @@ public class Award {
 
     /**
      * Method compares two objects on specific fields.
-     * Use the same set of fields that you use to compute equals() to compute hashCode()
+     * Use the same set of fields that you use to compute equals() to compute hashCode()!!!
      * @param o - incoming object
      * @return {@code true} - identical objects <br/>
      *         {@code false} - different objects <br/>
@@ -70,7 +70,10 @@ public class Award {
     }
 
     /**
-     * Generates hashCode on the basis of specific fields of objects
+     * Generates hashCode on the basis of specific fields of objects.
+     * when we override equals(), it is recommended to also override the hashCode() method.
+     * If we don’t do so, equal objects may get different hash-values; and hash based collections,
+     * including HashMap, HashSet, and HashTable do not work properly.
      * @return - hash code
      */
     @Override

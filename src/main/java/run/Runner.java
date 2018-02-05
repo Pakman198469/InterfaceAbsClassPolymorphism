@@ -121,6 +121,16 @@ public class Runner {
 
         System.out.println("==========================================================");
 
+        Map<Award, Nominee > mapa = new HashMap();
+        mapa.put(award1,nominee1);
+        mapa.put(award2,nominee1);
+        mapa.put(award1,nominee3);
+
+        System.out.println(mapa.size());
+        System.out.println(mapa);
+        System.out.println(Arrays.asList(mapa));
+        System.out.println(Collections.singletonList(mapa));
+        System.out.println("==========================================================");
 
 
         /**
