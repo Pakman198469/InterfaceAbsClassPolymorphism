@@ -130,6 +130,9 @@ public class Runner {
         System.out.println(mapa);
         System.out.println(Arrays.asList(mapa));
         System.out.println(Collections.singletonList(mapa));
+
+        Set mapSet = mapa.entrySet();
+        System.out.println("Set values" + mapSet);
         System.out.println("==========================================================");
 
 
