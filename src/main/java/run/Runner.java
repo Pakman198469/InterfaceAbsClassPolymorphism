@@ -131,8 +131,15 @@ public class Runner {
         System.out.println(Arrays.asList(mapa));
         System.out.println(Collections.singletonList(mapa));
 
-        Set mapSet = mapa.entrySet();
-        System.out.println("Set values" + mapSet);
+
+        /**
+         * entrySet usage
+         * Map.Entry - describe key/value pare
+         * entrySet() - method is used to get Set view of the mappings contained in this map
+         */
+        for(Map.Entry<Award, Nominee> entry: mapa.entrySet()) {
+            System.out.println("Key: " + entry.getKey() + " " + "Value: " + entry.getValue());
+        }
         System.out.println("==========================================================");
 
 
