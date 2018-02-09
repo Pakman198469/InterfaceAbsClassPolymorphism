@@ -92,6 +92,7 @@ public class Runner {
 
         }*/
 
+        //several awards of exact type
         System.out.println("==========================================================");
         helper.printAwards(awards , "OMG");
         System.out.println("==========================================================");
@@ -112,11 +113,14 @@ public class Runner {
         set1.add(award15);
         set1.add(award16);
         set1.add(award17);
+        //only unique awards (one time in set)
         helper.printAwardsSet((HashSet<Award>) set1);
 
         System.out.println("==========================================================");
         Set<Award> set = new HashSet<>(awards);
-        helper.printAwards3((HashSet<Award>) set);
+        //helper.printAwards3((HashSet<Award>) set);
+
+        //awards of exact type from SET
         helper.printAwards2((HashSet<Award>) set, "Ordnung");
 
         System.out.println("==========================================================");
@@ -125,12 +129,12 @@ public class Runner {
         mapa.put(award1,nominee1);
         mapa.put(award2,nominee1);
         mapa.put(award1,nominee3);
+        mapa.put(award15,nominee2);
 
         System.out.println(mapa.size());
         System.out.println(mapa);
         System.out.println(Arrays.asList(mapa));
         System.out.println(Collections.singletonList(mapa));
-
 
         /**
          * entrySet usage
@@ -140,6 +144,9 @@ public class Runner {
         for(Map.Entry<Award, Nominee> entry: mapa.entrySet()) {
             System.out.println("Key: " + entry.getKey() + " " + "Value: " + entry.getValue());
         }
+
+        helper.analyze(mapa,"Ordnung" );
+
         System.out.println("==========================================================");
 
 

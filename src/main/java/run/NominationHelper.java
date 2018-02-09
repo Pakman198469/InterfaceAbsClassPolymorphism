@@ -2,6 +2,7 @@ package run;
 
 import awards.Award;
 import checks.LimitChecker;
+import checks.MyException;
 import employees.Person;
 import nominators.Nominator;
 import nominees.Nominee;
@@ -36,7 +37,9 @@ public class NominationHelper {
     public void printAwards2(HashSet<Award> awards, String type) {
         System.out.println("\n" + "SET 'awards' with exact 'type' output");
         for (Award bonus : awards ) {
-            if(bonus.getType() == type) {System.out.println(bonus);}
+            if(bonus.getType() == type) {
+                System.out.println(bonus);
+            }
         }
     }
 
@@ -44,7 +47,7 @@ public class NominationHelper {
      * Prints awards from Set with unique types
      * @param awards - awards set
      */
-    public void printAwards3(HashSet<Award> awards) {
+    public void printAwards3(HashSet<Award> awards){
         System.out.println("SET 'awards' with unique types output");
         for (Award bonus : awards ) {
             System.out.println(bonus);
@@ -63,6 +66,15 @@ public class NominationHelper {
     }
 
 
+    public void analyze(Map<Award, Nominee > mapa, String type) throws MyException {
+        for(Map.Entry<Award, Nominee> entry: mapa.entrySet()) {
+            if(entry.getKey().equals(type)) {
+                throw new MyException("We have unexpected record!!!");
+            } else {
+                System.out.println("Key: " + entry.getKey() + " " + "Value: " + entry.getValue());
+            }
+        }
+    }
 
 
 
