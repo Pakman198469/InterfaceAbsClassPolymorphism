@@ -23,4 +23,8 @@ public class MyException extends RuntimeException {
     protected MyException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
+
+    public void getMessage(String s) {
+        s = "EXCEPTION1!!!!";
+    }
 }

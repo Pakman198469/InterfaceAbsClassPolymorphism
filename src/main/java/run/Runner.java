@@ -134,9 +134,9 @@ public class Runner {
         mapa.put(award15,nominee2);
 
         System.out.println(mapa.size());
-        System.out.println(mapa);
+        /*System.out.println(mapa);
         System.out.println(Arrays.asList(mapa));
-        System.out.println(Collections.singletonList(mapa));
+        System.out.println(Collections.singletonList(mapa));*/
 
         /**
          * entrySet usage
@@ -147,7 +147,7 @@ public class Runner {
             System.out.println("Key: " + entry.getKey() + " " + "Value: " + entry.getValue());
         }
 
-        helper.analyze(mapa,"Ordnung" );
+        helper.analyze2(mapa,"Ordnung" );
 
         System.out.println("==========================================================");
 

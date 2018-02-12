@@ -33,13 +33,14 @@ public class NominationHelper {
      * @param awards - awards set
      * @param type - award type
      */
-    public void printAwards2(HashSet<Award> awards, String type) {
+    public void printAwards2(HashSet<Award> awards, String type) throws MyException {
         System.out.println("\n" + "SET 'awards' with exact 'type' output");
         for (Award bonus : awards ) {
             if(bonus.getType() == type) {
                 System.out.println(bonus);
             }
             try {"Ordnung".equals(bonus.getType());} catch (MyException ex) {
+                System.out.println("Error: " + ex.getMessage());
                 ex.printStackTrace();
             }
         }
@@ -78,13 +79,25 @@ public class NominationHelper {
     }
 
 
-    public void analyze(Map<Award, Nominee > mapa, String type) throws MyException {
+    public void analyze(Map<Award, Nominee > mapa, String type) {
         for(Map.Entry<Award, Nominee> entry: mapa.entrySet()) {
-            if(entry.getKey().equals(type)) {
-                throw new MyException("We have unexpected record!!!");
-            } else {
                 System.out.println("Key: " + entry.getKey() + " " + "Value: " + entry.getValue());
+        }
+    }
+
+    public void analyze2(Map<Award, Nominee > mapa, String type) {
+        for(Map.Entry<Award, Nominee> entry : mapa.entrySet()) {
+            Set<Award> obj1 = new HashSet<>();
+            obj1.add(entry.getKey());
+            Set<String> types = new HashSet<>();
+            for(Award bonus : obj1) {
+                types.add(bonus.getType());
+                if(type.equals(bonus.getType())) {throw new MyException("Unsupported TYPE !!!!!!!");}
             }
+            //System.out.println(obj1);
+            System.out.println(types);
+
+            //System.out.println("Key: " + entry.getKey() + " " + "Value: " + entry.getValue());
         }
     }
 
