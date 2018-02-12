@@ -66,7 +66,8 @@ public class Award {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Award award = (Award) o;
-        return Objects.equals(type, award.type);
+        return Objects.equals(type, award.type) && Objects.equals(id, award.id) && Objects.equals(soli, award.soli)
+                && Objects.equals(value, award.value);
     }
 
     /**
@@ -78,7 +79,7 @@ public class Award {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(type);
+        return Objects.hash(type, id, soli, value);
     }
 
     public int getValue() {

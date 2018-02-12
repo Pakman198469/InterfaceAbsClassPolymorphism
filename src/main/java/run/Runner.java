@@ -94,6 +94,7 @@ public class Runner {
 
         //several awards of exact type
         System.out.println("==========================================================");
+        helper.printAwardsTypes(awards);
         helper.printAwards(awards , "OMG");
         System.out.println("==========================================================");
 
@@ -122,6 +123,7 @@ public class Runner {
 
         //awards of exact type from SET
         helper.printAwards2((HashSet<Award>) set, "Ordnung");
+
 
         System.out.println("==========================================================");
 

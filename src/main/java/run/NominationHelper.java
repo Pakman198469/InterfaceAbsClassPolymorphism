@@ -3,7 +3,6 @@ package run;
 import awards.Award;
 import checks.LimitChecker;
 import checks.MyException;
-import employees.Person;
 import nominators.Nominator;
 import nominees.Nominee;
 
@@ -21,7 +20,7 @@ public class NominationHelper {
      * @param type - award type
      */
     public void printAwards(List<Award> awards, String type) {
-        System.out.println("LIST 'awards' with exact 'type' output");
+        System.out.println("LIST 'awards' with specific 'type' output");
         for (Award bonus : awards ) {
             if(null != bonus.getType() && bonus.getType().equals(type)) {
                 System.out.println(bonus);
@@ -40,7 +39,20 @@ public class NominationHelper {
             if(bonus.getType() == type) {
                 System.out.println(bonus);
             }
+            try {"Ordnung".equals(bonus.getType());} catch (MyException ex) {
+                ex.printStackTrace();
+            }
         }
+
+    }
+
+    public void printAwardsTypes(List<Award> awards) {
+        System.out.println("\n" + "LIST 'awards' with unique 'type' output");
+        Set<String> types = new HashSet<>();
+        for (Award bonus : awards ) {
+            types.add(bonus.getType());
+        }
+        System.out.println(types);
     }
 
     /**
