@@ -2,6 +2,7 @@ package run;
 
 import awards.Award;
 import checks.LimitChecker;
+import checks.MyCheckedException;
 import employees.Person;
 import nominators.Nominator;
 import nominees.Nominee;
@@ -15,7 +16,7 @@ import java.util.*;
  */
 public class Runner {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MyCheckedException {
         Award award1 = new Award(10, 42, "OMG");
         Award award2 = new Award(20,50);
         Award award3 = new Award(80,90);
@@ -122,7 +123,11 @@ public class Runner {
         //helper.printAwards3((HashSet<Award>) set);
 
         //awards of exact type from SET
-        helper.printAwards2((HashSet<Award>) set, "Ordnung");
+        try {
+            helper.printAwards2((HashSet<Award>) set, "WTF");
+        } catch (MyCheckedException e) {
+            e.printStackTrace();
+        }
 
 
         System.out.println("==========================================================");
@@ -147,7 +152,7 @@ public class Runner {
             System.out.println("Key: " + entry.getKey() + " " + "Value: " + entry.getValue());
         }
 
-        helper.analyze2(mapa,"Ordnung" );
+        helper.analyze2(mapa,"type" );
 
         System.out.println("==========================================================");
 

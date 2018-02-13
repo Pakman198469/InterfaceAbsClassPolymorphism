@@ -2,7 +2,7 @@ package run;
 
 import awards.Award;
 import checks.LimitChecker;
-import checks.MyException;
+import checks.MyCheckedException;
 import nominators.Nominator;
 import nominees.Nominee;
 
@@ -33,16 +33,22 @@ public class NominationHelper {
      * @param awards - awards set
      * @param type - award type
      */
-    public void printAwards2(HashSet<Award> awards, String type) throws MyException {
+    public void printAwards2(HashSet<Award> awards, String type) throws MyCheckedException {
         System.out.println("\n" + "SET 'awards' with exact 'type' output");
         for (Award bonus : awards ) {
             if(bonus.getType() == type) {
                 System.out.println(bonus);
+                if(bonus.getType().equals("Ordnung")) {
+                throw new MyCheckedException("Ordnung EXCEPTION!!!!!!!!!!!"); }
             }
-            try {"Ordnung".equals(bonus.getType());} catch (MyException ex) {
+            /*try {
+                "Ordnung".equals(bonus.getType());
+            } catch (IllegalArgumentException ex) {
                 System.out.println("Error: " + ex.getMessage());
                 ex.printStackTrace();
-            }
+                throw new MyCheckedException();
+            }*/
+
         }
 
     }
@@ -85,14 +91,15 @@ public class NominationHelper {
         }
     }
 
-    public void analyze2(Map<Award, Nominee > mapa, String type) {
+    public void analyze2(Map<Award, Nominee > mapa, String type) throws MyCheckedException {
+        System.out.println("Map contains following award types:");
         for(Map.Entry<Award, Nominee> entry : mapa.entrySet()) {
             Set<Award> obj1 = new HashSet<>();
             obj1.add(entry.getKey());
             Set<String> types = new HashSet<>();
             for(Award bonus : obj1) {
                 types.add(bonus.getType());
-                if(type.equals(bonus.getType())) {throw new MyException("Unsupported TYPE !!!!!!!");}
+                if(type.equals(bonus.getType())) {throw new MyCheckedException("Unsupported award TYPE !!!!!!!");}
             }
             //System.out.println(obj1);
             System.out.println(types);
@@ -111,9 +118,10 @@ public class NominationHelper {
      * @param checker - limit checker for nominator/nominee
      */
 
-    public void nominate(Nominator nominator, Nominee nominee, Award award, LimitChecker checker) {
+    public void nominate(Nominator nominator, Nominee nominee, Award award, LimitChecker checker) throws NullPointerException {
         //System.out.println(nominee1.getName() + " received " + award1.getValue() + " $ award" + "\n");
         if (checker.canNominate(nominator, nominee, award)) {
+            if(award.getType() == null){ throw new NullPointerException("Award type can't be NULL during nomination!!!"); }
             this.receiveAward(award, nominee);
             nominator.setNominatorAwardQuantity(nominator.getNominatorAwardQuantity() + 1);   //nominatorAwardQuantity++;
             nominator.setNominatorAwardAmount(nominator.getNominatorAwardAmount() + award.getValue());  //nominatorAwardAmount = nominatorAwardAmount + award.getValue();
