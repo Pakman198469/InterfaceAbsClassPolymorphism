@@ -9,15 +9,17 @@ import nominees.Nominee;
 import java.util.*;
 
 /**
- * Created by Aleh_Hutyrchyk on 1/9/2018.
+ * Class contains important methods: nominate, receiveAward and calculateQuantity;
+ * Contains several methods for printing out awards from List, Set, Map.
+ * @author Aleh_Hutyrchyk
  */
 
 public class NominationHelper {
 
     /**
-     * Prints awards from List
+     * Prints awards from List with specific 'type'
      * @param awards - award
-     * @param type - award type
+     * @param type - specified award type
      */
     public void printAwards(List<Award> awards, String type) {
         System.out.println("LIST 'awards' with specific 'type' output");
@@ -29,7 +31,8 @@ public class NominationHelper {
     }
 
     /**
-     * Prints awards from Set with exact 'type'
+     * Prints out award with exact 'type' from Set
+     * Throws exception if award type = "Ordnung"
      * @param awards - awards set
      * @param type - award type
      */
@@ -41,18 +44,13 @@ public class NominationHelper {
                 if(bonus.getType().equals("Ordnung")) {
                 throw new MyCheckedException("Ordnung EXCEPTION!!!!!!!!!!!"); }
             }
-            /*try {
-                "Ordnung".equals(bonus.getType());
-            } catch (IllegalArgumentException ex) {
-                System.out.println("Error: " + ex.getMessage());
-                ex.printStackTrace();
-                throw new MyCheckedException();
-            }*/
-
         }
-
     }
 
+    /**
+     * Prints awards from List with unique type which was reached by converting List to Set.
+     * @param awards - awards in list
+     */
     public void printAwardsTypes(List<Award> awards) {
         System.out.println("\n" + "LIST 'awards' with unique 'type' output");
         Set<String> types = new HashSet<>();
@@ -84,27 +82,31 @@ public class NominationHelper {
         }
     }
 
-
-    public void analyze(Map<Award, Nominee > mapa, String type) {
+    /**
+     * Method prints out entire Map.
+     * @param mapa - our custom map.
+     */
+    public void printMap(Map<Award, Nominee > mapa) {
         for(Map.Entry<Award, Nominee> entry: mapa.entrySet()) {
                 System.out.println("Key: " + entry.getKey() + " " + "Value: " + entry.getValue());
         }
     }
 
+    /**
+     * Method prints out entire Map and throws exception if it contains award with unsupported type.
+     * @param mapa - our custom Map.
+     * @param type - unsupported award type should be passed here.
+     * @throws MyCheckedException - if contains unsupported award type.
+     */
     public void analyze2(Map<Award, Nominee > mapa, String type) throws MyCheckedException {
         System.out.println("Map contains following award types:");
-        for(Map.Entry<Award, Nominee> entry : mapa.entrySet()) {
-            Set<Award> obj1 = new HashSet<>();
-            obj1.add(entry.getKey());
+        for(Award award : mapa.keySet()) {
             Set<String> types = new HashSet<>();
-            for(Award bonus : obj1) {
-                types.add(bonus.getType());
-                if(type.equals(bonus.getType())) {throw new MyCheckedException("Unsupported award TYPE !!!!!!!");}
+            types.add(award.getType());
+            if(type.equals(award.getType())) {
+                throw new MyCheckedException("Unsupported award TYPE !!!!!!!");
             }
-            //System.out.println(obj1);
             System.out.println(types);
-
-            //System.out.println("Key: " + entry.getKey() + " " + "Value: " + entry.getValue());
         }
     }
 
@@ -112,23 +114,23 @@ public class NominationHelper {
 
     /**
      * Gives award to nominee after limits verification for nominator and nominee;
-     * increases nominatorAwardQuantity and nominatorAwardAmount if nomination was successful
+     * increases nominatorAwardQuantity and nominatorAwardAmount if nomination was successful;
+     * throws NullPointerException if award type = NULL.
      * @param nominee - nominee
      * @param award - award
      * @param checker - limit checker for nominator/nominee
      */
-
     public void nominate(Nominator nominator, Nominee nominee, Award award, LimitChecker checker) throws NullPointerException {
-        //System.out.println(nominee1.getName() + " received " + award1.getValue() + " $ award" + "\n");
         if (checker.canNominate(nominator, nominee, award)) {
-            if(award.getType() == null){ throw new NullPointerException("Award type can't be NULL during nomination!!!"); }
+            //if(award.getType() == null){ throw new NullPointerException("Award type can't be NULL during nomination!!!"); }
             this.receiveAward(award, nominee);
-            nominator.setNominatorAwardQuantity(nominator.getNominatorAwardQuantity() + 1);   //nominatorAwardQuantity++;
-            nominator.setNominatorAwardAmount(nominator.getNominatorAwardAmount() + award.getValue());  //nominatorAwardAmount = nominatorAwardAmount + award.getValue();
+            nominator.setNominatorAwardQuantity(nominator.getNominatorAwardQuantity() + 1);
+            nominator.setNominatorAwardAmount(nominator.getNominatorAwardAmount() + award.getValue());
         } else {
             System.out.println("Vtopku! No more awards!!!");
         }
     }
+
 
     /**
      * Allows nominee receive award; if award contains SOLI - performs award value recalculation;
@@ -136,7 +138,6 @@ public class NominationHelper {
      * @param award - award
      * @param nominee - nominee
      */
-
     public void receiveAward(Award award, Nominee nominee) {
         double p = award.getValue();
         Random random = new Random();
@@ -147,32 +148,23 @@ public class NominationHelper {
             //calculation for SOLI
             double newValue;
             newValue = award.getValue() + (award.getValue() * award.getSoli() / 100);
-            nominee.setNomineeAwardSum(nominee.getNomineeAwardSum() + newValue);  //= nomineeAwardSum + newValue;
-            nominee.setNomineeAwardQuantity(nominee.getNomineeAwardQuantity() + 1);  //nomineeAwardQuantity++;
+            nominee.setNomineeAwardSum(nominee.getNomineeAwardSum() + newValue);
+            nominee.setNomineeAwardQuantity(nominee.getNomineeAwardQuantity() + 1);
             System.out.printf("New Recalculated award = %s. " + " SOLI value = %s\n", newValue, award.getSoli());
         } else {
-
-            nominee.setNomineeAwardSum(nominee.getNomineeAwardSum() + award.getValue()); //this.nomineeAwardSum += award.getValue(); // this.nomineeAwardSum = nomineeAwardSum + award.getValue(); - оператор присваивания
-            nominee.setNomineeAwardQuantity(nominee.getNomineeAwardQuantity() + 1); //nomineeAwardQuantity++;
-            nominee.setPopulation(nominee.getPopulation() + 1);  //population++;
-
+            nominee.setNomineeAwardSum(nominee.getNomineeAwardSum() + award.getValue());
+            nominee.setNomineeAwardQuantity(nominee.getNomineeAwardQuantity() + 1);
+            nominee.setPopulation(nominee.getPopulation() + 1);
             if(nominee.getQuantity() == 0) {
-
                 System.out.println("New " + p + " award received. No SOLI recalculation.");
-                //System.out.println("population " + population);
-                nominee.setQuantity(calculateQuantity(z, p, c, nominee));  //quantity = calculateQuantity(z, p, c);
-                //System.out.println("calculatedQuantity " + quantity);
+                nominee.setQuantity(calculateQuantity(z, p, c, nominee));
             }else {
                 System.out.println("New " + p + " award received. No SOLI recalculation.");
-                nominee.setQuantity(calculateQuantity(z, p, c, nominee));  //quantity2 = calculateQuantity(z, p, c);
-                //System.out.println("calculatedQuantity " + quantity2);
+                nominee.setQuantity(calculateQuantity(z, p, c, nominee));
             }
-
-
         }
-
-
     }
+
 
     /**
      * Recalculates awards without SOLI

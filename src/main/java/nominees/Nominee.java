@@ -126,6 +126,10 @@ public class Nominee extends Person {
         this.quantity2 = quantity2;
     }
 
+    /**
+     * Prints out nominee name, department, award sum.
+     * @return - employee info from Person superclass + nomineeAwardSum from Nominee.
+     */
     @Override
     public String toString() {
         return "Nominee: " + super.toString() + ", got $" + nomineeAwardSum + " in total";

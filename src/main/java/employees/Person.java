@@ -4,7 +4,8 @@ import awards.Award;
 import checks.OperationsWithLimit;
 
 /**
- * Created by Aleh_Hutyrchyk on 1/19/2018.
+ * General class that defines main employee parameters.
+ * @author Aleh_Hutyrchyk
  */
 public abstract class Person implements OperationsWithLimit{
 

@@ -58,14 +58,12 @@ public class Runner {
          */
         Person person4 = new Nominator("Great Nominator", 30, 1000);
         Nominator nominator1 = null;
-        //if (person4 instanceof Nominator) {
-            nominator1 = (Nominator) person4;
-        //}
+        nominator1 = (Nominator) person4;
+
         Person person5 = new Nominator("Extended nominator", 25, 3, "IT", 20, 500);
         Nominator nominator2 = null;
-        //if (person5 instanceof Nominator) {
-            nominator2 = (Nominator) person5;
-       //}
+        nominator2 = (Nominator) person5;
+
         LimitChecker checker = new LimitChecker();
         NominationHelper helper = new NominationHelper();
 
@@ -90,7 +88,6 @@ public class Runner {
 
         /*for (Object bonus : awards ) {
             System.out.println(bonus);
-
         }*/
 
         //several awards of exact type
@@ -119,6 +116,7 @@ public class Runner {
         helper.printAwardsSet((HashSet<Award>) set1);
 
         System.out.println("==========================================================");
+        //Convert List to a Set
         Set<Award> set = new HashSet<>(awards);
         //helper.printAwards3((HashSet<Award>) set);
 
@@ -127,6 +125,8 @@ public class Runner {
             helper.printAwards2((HashSet<Award>) set, "WTF");
         } catch (MyCheckedException e) {
             e.printStackTrace();
+        } finally {
+            System.out.println("Finally");
         }
 
 
@@ -139,9 +139,7 @@ public class Runner {
         mapa.put(award15,nominee2);
 
         System.out.println(mapa.size());
-        /*System.out.println(mapa);
-        System.out.println(Arrays.asList(mapa));
-        System.out.println(Collections.singletonList(mapa));*/
+
 
         /**
          * entrySet usage
@@ -152,7 +150,7 @@ public class Runner {
             System.out.println("Key: " + entry.getKey() + " " + "Value: " + entry.getValue());
         }
 
-        helper.analyze2(mapa,"type" );
+        helper.analyze2(mapa,"typetypetype" );
 
         System.out.println("==========================================================");
 

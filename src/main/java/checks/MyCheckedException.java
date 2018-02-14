@@ -1,7 +1,8 @@
 package checks;
 
 /**
- * Created by Aleh_Hutyrchyk on 2/13/2018.
+ * Class for custom checked (extends Exception) exceptions.
+ * @author Aleh_Hutyrchyk
  */
 public class MyCheckedException extends Exception {
     public MyCheckedException() {
